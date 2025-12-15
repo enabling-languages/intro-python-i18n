@@ -32,6 +32,9 @@ Python's inbuilt modules are:
    1. Codepoints, code units and characters
    2. Normalisation
    3. [Graphemes](docs/graphemes.md)
+       1. Introduction
+       2. Segmentation and tokenisation
+       3. Indexing and splicing 
    4. Case mapping
    5. Case insensitivity
       1. Case folding
@@ -39,8 +42,13 @@ Python's inbuilt modules are:
       3. Collation 
    6. Segmentation
    7. Transliteration
+<<<<<<< HEAD
    8. Other string transformations
 3. Sorting
+=======
+   9. Other string transformations
+4. Sorting
+>>>>>>> ba57ba3e1cbbd643d5da87c90c3f1466fa3d051b
     1. Introduction
     2. Locale
     3. Unicode collation and sorting
