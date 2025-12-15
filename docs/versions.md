@@ -34,6 +34,7 @@ print(unicodedata.unidata_version)
 
 |ICU4C Release |CLDR |Unicode |
 |------------- |---- |------- |
+|ICU 78 |48 |17.0 |
 |ICU 77 |47 |16.0 |
 |ICU 76 |46 |16.0 |
 |ICU 75 |45 |15.1 |
