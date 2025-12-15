@@ -39,7 +39,7 @@ Python's inbuilt modules are:
       3. Collation 
    6. Segmentation
    7. Transliteration
-   9. Other string transformations
+   8. Other string transformations
 3. Sorting
     1. Introduction
     2. Locale

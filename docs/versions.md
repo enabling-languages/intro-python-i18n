@@ -9,7 +9,7 @@ __Current Unicode version:__ 17.0
 ## Python
 
 |Python version |Unicode |
-|-------------- |------- |
+|-------------  |------  |
 |3.14  |16.0  |
 |3.13  |15.1  |
 |3.12  |15.0  |
@@ -33,7 +33,7 @@ print(unicodedata.unidata_version)
 ## PyICU / ICU4C
 
 |ICU4C Release |CLDR |Unicode |
-|------- |---- |-------- |
+|------------- |---- |------- |
 |ICU 77 |47 |16.0 |
 |ICU 76 |46 |16.0 |
 |ICU 75 |45 |15.1 |
@@ -74,7 +74,7 @@ print(icu.ICU_VERSION)
 print(icu.UNICODE_VERSION)
 ```
 
-## Unicode support 
+## Unicode support for selected packages
 
 A range of modules extend Python's Unicode support, below we list latest versions of modules by the Unicode version they support.
 
@@ -82,40 +82,39 @@ A range of modules extend Python's Unicode support, below we list latest version
 
 Packages that provide Unicode 17.0 support:
 
-- [graphemeu](https://pypi.org/project/graphemeu/)
-- [pyunormalize](https://pypi.org/project/pyunormalize/)
-- [unimoji](https://pypi.org/project/unimoji/)
-- [what2-grapheme](https://pypi.org/project/what2-grapheme/)
-
+* [graphemeu](https://pypi.org/project/graphemeu/)
+* [pyunormalize](https://pypi.org/project/pyunormalize/)
+* [unimoji](https://pypi.org/project/unimoji/)
+* [what2-grapheme](https://pypi.org/project/what2-grapheme/)
 
 ### Unicode 16.0 support
 
 Packages that provide Unicode 16.0 support:
 
-- [demicode](https://pypi.org/project/demicode/)
-- [pyuegc](https://pypi.org/project/pyuegc/)
-- [regex](https://pypi.org/project/regex/)
-- [ugrapheme](https://pypi.org/project/ugrapheme/)
-- [unicode-age](https://pypi.org/project/unicode-age/)
-- [unicode-charnames](https://pypi.org/project/unicode-charnames/)
-- [unicodedata2](https://pypi.org/project/unicodedata2/)
-- [unicodedataplus](https://pypi.org/project/unicodedataplus/)
-- [unicode-rbnf](https://pypi.org/project/unicode-rbnf/)
-- [unicode-segmentation-py](https://pypi.org/project/unicode-segmentation-py/)
-- [unidata-blocks](https://pypi.org/project/unidata-blocks/)
-- [unisegp](https://pypi.org/project/unisegp/)
-- [uniseg](https://pypi.org/project/uniseg/)
-- [uwcwidth](https://pypi.org/project/uwcwidth/)
+* [demicode](https://pypi.org/project/demicode/)
+* [pyuegc](https://pypi.org/project/pyuegc/)
+* [regex](https://pypi.org/project/regex/)
+* [ugrapheme](https://pypi.org/project/ugrapheme/)
+* [unicode-age](https://pypi.org/project/unicode-age/)
+* [unicode-charnames](https://pypi.org/project/unicode-charnames/)
+* [unicodedata2](https://pypi.org/project/unicodedata2/)
+* [unicodedataplus](https://pypi.org/project/unicodedataplus/)
+* [unicode-rbnf](https://pypi.org/project/unicode-rbnf/)
+* [unicode-segmentation-py](https://pypi.org/project/unicode-segmentation-py/)
+* [unidata-blocks](https://pypi.org/project/unidata-blocks/)
+* [unisegp](https://pypi.org/project/unisegp/)
+* [uniseg](https://pypi.org/project/uniseg/)
+* [uwcwidth](https://pypi.org/project/uwcwidth/)
 
 ### Unicode 13.0 support
 
-- [grapheme](https://pypi.org/project/grapheme/)
+* [grapheme](https://pypi.org/project/grapheme/)
 
-## Other packages:
+## Other packages
 
-- [charex](https://pypi.org/project/charex/)
-- [ftfy](https://pypi.org/project/ftfy/)
-- [plsfix](https://pypi.org/project/plsfix/)
-- [unicode-charset](https://pypi.org/project/unicode-charset/)
-- [wcwidth](https://pypi.org/project/wcwidth/)
-- [words-segmentation](https://pypi.org/project/words-segmentation/)
+* [charex](https://pypi.org/project/charex/)
+* [ftfy](https://pypi.org/project/ftfy/)
+* [plsfix](https://pypi.org/project/plsfix/)
+* [unicode-charset](https://pypi.org/project/unicode-charset/)
+* [wcwidth](https://pypi.org/project/wcwidth/)
+* [words-segmentation](https://pypi.org/project/words-segmentation/)
