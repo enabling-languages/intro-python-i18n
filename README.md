@@ -32,7 +32,7 @@ Python's inbuilt modules are:
    1. Codepoints, code units and characters
    2. Normalisation
    3. Graphemes
-       1. [Introduction](docs/graphemes_introduction.md)
+       1. [Introduction](docs/graphemes_intro.md)
        2. [Segmentation and tokenisation](docs/graphemes_segment.md)
        3. [Indexing and splicing](docs/graphemes_indexing.md)
    4. Case mapping

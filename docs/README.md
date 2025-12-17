@@ -5,7 +5,7 @@
    1. Codepoints, code units and characters
    2. Normalisation
    3. Graphemes
-       1. [Introduction](graphemes_introduction.md)
+       1. [Introduction](graphemes_intro.md)
        2. [Segmentation and tokenisation](graphemes_segment.md)
        3. [Indexing and splicing](graphemes_indexing.md)
    4. Case mapping

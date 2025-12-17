@@ -2,7 +2,7 @@
 
 > [!IMPORTANT]
 > Different solutions detailed below are based on differing versions of Unicode. 
-> [Unicode support](https://github.com/enabling-languages/intro-python-i18n/wiki/Unicode-support) details
+> [Unicode support](versions.md) details
 > of some modules are tracked in this repo.
 
 ## Regex
@@ -45,7 +45,7 @@ Why the difference? The update to UAX #29 for Unicode 15.1 introduced a new rule
 > [!WARNING]
 > If you are working with text in South Asian and some South East Asian scripts, and grapheme support is required, it is necessary to use a package that supports Unicode 15.1 as a minimum requirement.
 >
-> Refer to the [Unicode version](docs/versions.md) notes or the packages' documentation.
+> Refer to the [Unicode version](versions.md) notes or the packages' documentation.
 
 ```py
 import icu

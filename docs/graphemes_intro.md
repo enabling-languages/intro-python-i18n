@@ -2,7 +2,7 @@
 
 > [!IMPORTANT]
 > Different solutions detailed below are based on differing versions of Unicode. 
-> [Unicode support](https://github.com/enabling-languages/intro-python-i18n/wiki/Unicode-support) details
+> [Unicode support](versions.md) details
 > of some modules are tracked in this repo.
 
 When working with tokenisation and break iterators, it is sometimes necessary to work at the character, syllable, line, or sentence levels. Character level tokenisation is an interesting case. Character level tokenisation could be by character (or codepoint) or by grapheme. A Grapheme is:
