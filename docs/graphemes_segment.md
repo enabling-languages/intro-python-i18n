@@ -1,68 +1,17 @@
-# Graphemes
+# Graphemes: segmentation and tokenisation
 
 > [!IMPORTANT]
 > Different solutions detailed below are based on differing versions of Unicode. 
 > [Unicode support](https://github.com/enabling-languages/intro-python-i18n/wiki/Unicode-support) details
 > of some modules are tracked in this repo.
 
-## Introduction
-
-When working with tokenisation and break iterators, it is sometimes necessary to work at the character, syllable, line, or sentence levels. Character level tokenisation is an interesting case. Character level tokenisation could be by character (or codepoint) or by grapheme. A Grapheme is:
-
-<blockquote cite='https://www.unicode.org/glossary/#grapheme'>
-<ol>
-    <li>A minimally distinctive unit of writing in the context of a particular writing system. For example, ‹b› and ‹d› are distinct graphemes in English writing systems because there exist distinct words like big and dig. Conversely, a lowercase italiform letter a and a lowercase Roman letter a are not distinct graphemes because no word is distinguished on the basis of these two different forms. </li>
-    <li>What a user thinks of as a character.</li>
-</ol>
-<footer style="text-align: end"><a href="https://www.unicode.org/glossary/#grapheme">Grapheme</a>, <a href="https://unicode.org/glossary/"><i class="title">Unicode Glossary</i></a>.</footer>
-</blockquote>
-
-The usual way developers handle character level tokenisation of English is via list comprehension or typecasting a string to a list:
-
-```py
->>> t1 = "transformation"
->>> list(t1)
-['t', 'r', 'a', 'n', 's', 'f', 'o', 'r', 'm', 'a', 't', 'i', 'o', 'n']
-
->>> [char for char in t1]
-['t', 'r', 'a', 'n', 's', 'f', 'o', 'r', 'm', 'a', 't', 'i', 'o', 'n']
-
->>> [*t1]
-['t', 'r', 'a', 'n', 's', 'f', 'o', 'r', 'm', 'a', 't', 'i', 'o', 'n']
-```
-
-This will give you discrete characters, but this approach doesn't work as well for other languages.
-
-Let's take a [Dinka](https://en.wikipedia.org/wiki/Dinka_language) string as an example:
-
-```py
->>> t2 = "dɛ̈tëicëkäŋ akɔ̈ɔ̈n"
->>> [char for char in t2]
-['d', 'ɛ', '̈', 't', 'ë', 'i', 'c', 'ë', 'k', 'ä', 'ŋ', ' ', 'a', 'k', 'ɔ', '̈', 'ɔ', '̈', 'n']
-```
-
-There is a mixture of precomposed and decomposed character sequences.
-
-```py
->>> import unicodedata as ud
->>> ud.is_normalized('NFC', t2)
-True
-```
-
-The text is fully precomposed, using Unicode Normalization Form C, but many character sequences that should be treated as a single unit do not exist as single codepoints. How do we work with ä vs ɛ̈? Unicode defines grapheme cluster boundaries in the annex on [Unicode Text segmentation](https://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries) (UAX #29).
-
-Python has no internal support for handling and processing strings at the grapheme level, although a number of Python packages implement grapheme cluster segmentation based on [UAX #29](https://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries).
-
-_Unicode documentation refers to legacy grapheme clusters, extended grapheme clusters, and tailored grapheme clusters. Generally, when graphemes are referred to, extended grapheme clusters are meant._
-
-## Grapheme tokenisation
-
-### Regex
+## Regex
 
 The [regex](https://github.com/mrabarnett/mrab-regex) package supports grapheme segmentation.
 
 ```py
 import regex as re
+t2 = "dɛ̈tëicëkäŋ akɔ̈ɔ̈n"
 re.findall(r'\X',t2)
 # ['d', 'ɛ̈', 't', 'ë', 'i', 'c', 'ë', 'k', 'ä', 'ŋ', ' ', 'a', 'k', 'ɔ̈', 'ɔ̈', 'n']
 ```
@@ -116,7 +65,7 @@ The key difference is that UAX #29 for Unicode 15.1 onwards treats `094D ( ् )
 
 The following overview of other grapheme solutions will use the latest version of the modules. For the Devanagari example modules using a pre-Unicode 15.1 implementation will give three graphemes and newer solutions will give two.
 
-### Grapheme
+## Grapheme
 
 Alternatively we could use the [grapheme](https://github.com/alvinlindstam/grapheme) package, which provides a number of functions to manipulate strings using graphemes as the basic unit, rather than individual codepoints, as standard Python string operations do.
 
@@ -137,9 +86,9 @@ list(grapheme.graphemes(t3))
 ['हि', 'न्', 'दी']
 ```
 
-### PyICU: 
+## PyICU: 
 
-#### Using a break iterator
+### Using a break iterator
 
 Alternatively, we could use [PyICU](https://gitlab.pyicu.org/main/pyicu), with icu4c, for grapheme tokenisation.
 
@@ -194,7 +143,7 @@ get_generated_tokens(t3, iter)
 
 The *icu4c* break iterator generates two grapheme clusters. 
 
-#### ICU regular expressions
+### ICU regular expressions
 
 Alternatively, it is possible to use `icu.RegexMatcher` to split a string into graphemes:
 
@@ -211,7 +160,7 @@ find_all(r'\X', t3)
 
 `icu.RegexMatcher` returns two graphemes.
 
-### graphemeu
+## graphemeu
 
 This package is a fork of the [grapheme](#grapheme) package and current versions support Unicode 16.0.
 
@@ -221,19 +170,15 @@ list(graphemes(t3))
 # ['हि', 'न्दी']
 ```
 
-### pyuegc
+## pyuegc
 
 Then there is [pyuegc](https://pypi.org/project/pyuegc/).
 
-```
+```py
 from pyuegc import EGC, UCD_VERSION
 UCD_VERSION
 # '16.0.0'
-```
 
-The lastest *pyuegc* package uses the current Unicode version.
-
-```py
 EGC(t2)
 # ['d', 'ɛ̈', 't', 'ë', 'i', 'c', 'ë', 'k', 'ä', 'ŋ', ' ', 'a', 'k', 'ɔ̈', 'ɔ̈', 'n']
 
@@ -243,7 +188,7 @@ EGC(t3)
 
 *pyegc* splits the string into two grapheme clusters.
 
-### ugrapheme
+## ugrapheme
 
 Another solution is [ugrapheme](https://pypi.org/project/ugrapheme/), which also uses the latest version of Unicode. Unlike the other solutions, _ugrapheme_ creates a class instance providing a range of methods for working with and manipulating strings on a grapheme level rather than a character or codepoint level. To mimic the other solutions, you can cast the object to a list:
 
@@ -262,7 +207,7 @@ grapheme_split(t3)
 # ['हि', 'न्दी']
 ```
 
-### unicode_segmentation_py
+## unicode_segmentation_py
 
 The package [unicode_segmentation_py](https://pypi.org/project/unicode-segmentation-py/) is another segmentation tool, which can segment graphemes, words, or sentences.
 
@@ -283,7 +228,7 @@ useg.to_graphemes(t3)
 # ['हि', 'न्दी']
 ```
 
-### uniseg
+## uniseg
 
 The [uniseg](https://pypi.org/project/uniseg/) package provides a segmentation solution that handles codepoint, grapheme, word, sentence and line segmentation:
 
@@ -299,7 +244,7 @@ The version if Unicode supported can be identified by:
 print(uniseg.unidata_version)
 ```
 
-### unisegp
+## unisegp
 
 The package [unisegp](https://pypi.org/project/unisegp/) is a fork of _uniseg_, and provides a segmentation solution that handles codepoint, grapheme, word, sentence and line segmentation:
 
@@ -316,6 +261,13 @@ list(grapheme_clusters(t3))
 # ['हि', 'न्दी']
 ```
 
-### what2-grapheme
+## what2-grapheme
 
 The package [what2-grapheme](https://pypi.org/project/what2-grapheme/):
+
+
+---
+
+![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/80x15.png)
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+[Enabling Languages](https://github.com/enabling-languages/), 2025.
