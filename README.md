@@ -21,7 +21,7 @@ For global projects, or projects focusing on lesser used and minority languages,
 
 Python's inbuilt modules are:
 
-- Language and locale insensitive, although some can use libc based formatting and parsing.
+- Language and locale insensitive, although some can use _libc_ based formatting and parsing.
 - Will have varying degrees of support for Unicode.
 - May yield different results than other languages and tools.
 
@@ -31,10 +31,10 @@ Python's inbuilt modules are:
 2. Strings
    1. Codepoints, code units and characters
    2. Normalisation
-   3. [Graphemes](docs/graphemes.md)
-       1. [Introduction]((docs/graphemes_introduction.md))
-       2. [Segmentation and tokenisation]((docs/graphemes_segment.md))
-       3. [Indexing and splicing]((docs/graphemes_index.md))
+   3. Graphemes
+       1. [Introduction](docs/graphemes_introduction.md)
+       2. [Segmentation and tokenisation](docs/graphemes_segment.md)
+       3. [Indexing and splicing](docs/graphemes_indexing.md)
    4. Case mapping
    5. Case insensitivity
       1. Case folding

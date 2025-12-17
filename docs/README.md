@@ -4,7 +4,10 @@
 2. Strings
    1. Codepoints, code units and characters
    2. Normalisation
-   3. [Graphemes](graphemes.md)
+   3. Graphemes
+       1. [Introduction](graphemes_introduction.md)
+       2. [Segmentation and tokenisation](graphemes_segment.md)
+       3. [Indexing and splicing](graphemes_indexing.md)
    4. Case mapping
    5. Case insensitivity
       1. Case folding
@@ -21,8 +24,9 @@
        2. PyICU
        3. Sorting emoji
     4. Natural sorting
-    5. Package specific notes:
+    5. Various packages:
        1. Pandas
+       2. Polars
 
 ---
 
